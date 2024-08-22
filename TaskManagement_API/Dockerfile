@@ -22,4 +22,9 @@ RUN dotnet publish "./TaskManagement_API.csproj" -c $BUILD_CONFIGURATION -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+ENV MongoDb="mongodb+srv://mistaweng1:ESXHkIv0IRoOu7rp@taskmanagementdb.6sy4o.mongodb.net/"
+ENV RedisConnection:Host="redis-11783.c251.east-us-mz.azure.redns.redis-cloud.com:11783"
+ENV RedisConnection:Password="pEHowDbhoyQwCQ94DVQzFQIcD8P7t7WX"
+
 ENTRYPOINT ["dotnet", "TaskManagement_API.dll"]
