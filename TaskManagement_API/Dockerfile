@@ -3,8 +3,8 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
@@ -23,9 +23,10 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENV MongoDb="mongodb+srv://mistaweng1:ESXHkIv0IRoOu7rp@taskmanagementdb.6sy4o.mongodb.net/"
+ENV MongoDb="mongodb+srv://mistaweng1:eI5wNjHCE6JUu71Z@taskmanagementdb.upnhx.mongodb.net/?retryWrites=true&w=majority&appName=TaskManagementDB"
 ENV RedisConnection:Host="redis-11783.c251.east-us-mz.azure.redns.redis-cloud.com:11783"
 ENV RedisConnection:Password="pEHowDbhoyQwCQ94DVQzFQIcD8P7t7WX"
 
+EXPOSE 27017 11783 6379
 
 ENTRYPOINT ["dotnet", "TaskManagement_API.dll"]
