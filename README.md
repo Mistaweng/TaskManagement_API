@@ -1,4 +1,4 @@
-#Task Management Backend Application
+# Task Management Backend Application
 
 This is a backend application for managing tasks in a project management system. It provides RESTful APIs for creating, updating, deleting, and retrieving tasks, lists, and groups.
 
@@ -7,7 +7,7 @@ This is a backend application for managing tasks in a project management system.
 1. Clone the repository.
 2. Run the application with `dotnet run`
 
-##Features
+## Features
 
 - CRUD operations for tasks, lists, and groups
 - Integration with MongoDB for data persistence
